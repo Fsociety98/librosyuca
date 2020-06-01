@@ -24,3 +24,7 @@ Route::get('principal', function(){
 Route::get('saludo/{nombre}', function($nombre){
 	return "Saludos ".$nombre;
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
