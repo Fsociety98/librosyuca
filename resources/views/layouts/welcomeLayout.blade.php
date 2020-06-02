@@ -81,13 +81,6 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
-                <a class="nav-link-head">
-                    <button type="button" class="btn btn-secondary btn-lg">
-                    <i style="margin-right: 5px;" class="fas fa-plus"></i> ADD A
-                    BOOK
-                    
-                    </button> 
-                </a>
                 <div style="height: 10px; background-color: #19202e;"></div>
                 <a class="nav-link" href="#"
                     ><div class="sb-nav-link-icon">
