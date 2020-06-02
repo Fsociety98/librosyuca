@@ -33,16 +33,16 @@
     </div>
   </div>
   <div style="margin-top: 30px;" class="card-deck">
-      <div class="card">
-        <img style="border-radius: 4px" src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top" alt="...">
+      <div style="border-radius: 4px" class="card">
+        <img   src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top shadow" alt="...">
         <div class="card-footer">
             <h5>Harry Potter</h5>
               <small class="text-muted">By Rowling</small>
               <i style="color: rgb(255, 208, 0);" class="fas fa-star"></i>5
         </div>
       </div>
-      <div style="border-radius: 4px" class="card">
-          <img src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top" alt="...">
+      <div style="border-radius: 4px" class="card ">
+          <img src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top shadow" alt="...">
           <div class="card-footer">
               <h5>Harry Potter</h5>
                 <small class="text-muted">By Rowling</small>
@@ -50,7 +50,7 @@
           </div>
         </div>
         <div style="border-radius: 4px" class="card">
-          <img src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top" alt="...">
+          <img src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top shadow" alt="...">
           <div class="card-footer">
               <h5>Harry Potter</h5>
                 <small class="text-muted">By Rowling</small>
@@ -58,7 +58,7 @@
           </div>
         </div>
         <div style="border-radius: 4px" class="card">
-          <img src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top" alt="...">
+          <img src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top shadow"  alt="...">
           <div class="card-footer">
               <h5>Harry Potter</h5>
                 <small class="text-muted">By Rowling</small>
@@ -66,7 +66,7 @@
           </div>
         </div>
         <div style="border-radius: 4px" class="card">
-          <img src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top" alt="...">
+          <img src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top shadow" alt="...">
           <div class="card-footer">
               <h5>Harry Potter</h5>
                 <small class="text-muted">By Rowling</small>
