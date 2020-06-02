@@ -28,3 +28,12 @@ Route::get('saludo/{nombre}', function($nombre){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//autores
+//Route::get('/autores', 'AutoresController@index')->name('autores');
+//Route::get('/autores/create', 'AutoresController@create')->name('autores_create');
+Route::resource('autores','AutoresController');
+
+//libros
+Route::resource('libros','LibrosController');
+

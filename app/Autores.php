@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Autores extends Model
 {
-    //
+    protected $primaryKey = 'autorId';
 }

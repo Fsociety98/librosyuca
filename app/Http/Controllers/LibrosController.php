@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Libros;
+use App\Autores;
 use Illuminate\Http\Request;
 
 class LibrosController extends Controller
@@ -24,7 +25,8 @@ class LibrosController extends Controller
      */
     public function create()
     {
-        //
+        $autoresList = Autores::all();
+        return view('libros.create', compact('autoresList'));
     }
 
     /**

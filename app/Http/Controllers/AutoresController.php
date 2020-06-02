@@ -9,12 +9,14 @@ class AutoresController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *8
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $datos['autores'] = Autores::paginate(5);
+
+        return view('autores.index', $datos);
     }
 
     /**
@@ -25,6 +27,7 @@ class AutoresController extends Controller
     public function create()
     {
         //
+        return view('autores.create');
     }
 
     /**
@@ -35,7 +38,18 @@ class AutoresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$datosAutor = request()->all();
+        $datosAutor = request()->except('_token');
+
+        /*
+        if($request->hasFile('foto')){
+            $datosAutor['foto'] = $request->file('foto')->store('uploads','public');
+        }
+        */
+
+        Autores::insert($datosAutor);
+
+        return response()->json($datosAutor);
     }
 
     /**
@@ -55,9 +69,11 @@ class AutoresController extends Controller
      * @param  \App\Autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function edit(Autores $autores)
+    public function edit($autorId)
     {
-        //
+        $autor = Autores::findOrFail($autorId);
+
+        return view('autores.edit', compact('autor'));
     }
 
     /**
@@ -67,9 +83,14 @@ class AutoresController extends Controller
      * @param  \App\Autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Autores $autores)
+    public function update(Request $request, $autorId)
     {
-        //
+        $datosAutor = request()->except(['_token','_method']);
+        Autores::where('autorId', '=', $autorId)->update($datosAutor);
+
+        $datos['autores'] = Autores::paginate(5);
+
+        return view('autores.index', $datos);
     }
 
     /**
@@ -78,8 +99,9 @@ class AutoresController extends Controller
      * @param  \App\Autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Autores $autores)
+    public function destroy($autorId)
     {
-        //
+        Autores::destroy($autorId);
+        return redirect('autores');
     }
 }
