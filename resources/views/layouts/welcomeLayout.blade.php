@@ -85,7 +85,8 @@
                     <button type="button" class="btn btn-secondary btn-lg">
                     <i style="margin-right: 5px;" class="fas fa-plus"></i> ADD A
                     BOOK
-                    </button>
+                    
+                    </button> 
                 </a>
                 <div style="height: 10px; background-color: #19202e;"></div>
                 <a class="nav-link" href="#"
