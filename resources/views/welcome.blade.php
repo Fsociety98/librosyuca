@@ -9,10 +9,10 @@
   <div>
     <div class="row">
       <div class="col">
-        <a href="#" class="badge badge-primary">All Books</a>
-        <a href="#" class="badge badge-primary">Most Recent</a>
-        <a href="#" class="badge badge-primary">Most Popular</a>
-        <a href="#" class="badge badge-primary">Free Books</a>
+        <a href="{{ url('/') }}" class="badge badge-primary">{{'Todos los libros'}}</a>
+        <a href="{{ url('/reciente') }}" class="badge badge-primary">{{'Más reciente'}}</a>
+        <a href="{{ url('/popular') }}" class="badge badge-primary">{{'Más popular'}}</a>
+        <a href="{{ url('/gratis') }}" class="badge badge-primary">{{'Libros gratis'}}</a>
       </div>
       <div class="col col-lg-4">
         <div class="input-group">
@@ -33,30 +33,19 @@
     </div>
   </div>
   <div style="margin-top: 30px;" class="card-deck">
+
+    @foreach ($libros as $libro)
       <div style="border-radius: 4px" class="card">
-        <img   src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top shadow" alt="...">
+        <img src="{{ asset('storage').'/'.$libro->imagen }}" class="card-img-top shadow" width="50" height="270" alt="...">
         <div class="card-footer">
-            <h5>Harry Potter</h5>
-              <small class="text-muted">By Rowling</small>
-              <i style="color: rgb(255, 208, 0);" class="fas fa-star"></i>5
+            <h5>{{$libro->nombre}}</h5>
+              <small class="text-muted">Por {{$libro->nombreAutor}}</small>
+              <i style="color: rgb(255, 208, 0);" class="fas fa-star"></i>{{$libro->calificacion}}
         </div>
       </div>
-      <div style="border-radius: 4px" class="card ">
-          <img src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top shadow" alt="...">
-          <div class="card-footer">
-              <h5>Harry Potter</h5>
-                <small class="text-muted">By Rowling</small>
-                <i style="color: rgb(255, 208, 0);" class="fas fa-star"></i>5
-          </div>
-        </div>
-        <div style="border-radius: 4px" class="card">
-          <img src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top shadow" alt="...">
-          <div class="card-footer">
-              <h5>Harry Potter</h5>
-                <small class="text-muted">By Rowling</small>
-                <i style="color: rgb(255, 208, 0);" class="fas fa-star"></i>5
-          </div>
-        </div>
+    @endforeach
+
+        <!--
         <div style="border-radius: 4px" class="card">
           <img src="{{URL::to('/')}}/assets/img/harrypotter.webp" class="card-img-top shadow"  alt="...">
           <div class="card-footer">
@@ -73,6 +62,7 @@
                 <i style="color: rgb(255, 208, 0);" class="fas fa-star"></i>5
           </div>
         </div>
+      -->
      
 </div> 
 @endsection

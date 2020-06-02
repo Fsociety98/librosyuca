@@ -13,9 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+Route::get('/', 'PanelLibrosController@index')->name('PanelLibros');
+Route::get('/gratis', 'PanelLibrosController@gratis')->name('PanelLibrosGratis');
+Route::get('/popular', 'PanelLibrosController@popular')->name('PanelLibrosPopular');
+Route::get('/reciente', 'PanelLibrosController@reciente')->name('PanelLibrosReciente');
+
+
 Route::get('/admin', function () {
     return view('admin.adminAutors');
 })->name('autors');
