@@ -14,7 +14,8 @@ class AutoresController extends Controller
      */
     public function index()
     {
-        $datos['autores'] = Autores::paginate(5);
+        //$datos['autores'] = Autores::paginate(5);
+        $datos['autores'] = Autores::all();
 
         return view('autores.index', $datos);
     }
@@ -90,9 +91,11 @@ class AutoresController extends Controller
         $datosAutor = request()->except(['_token','_method']);
         Autores::where('autorId', '=', $autorId)->update($datosAutor);
 
-        $datos['autores'] = Autores::paginate(5);
+        //$datos['autores'] = Autores::paginate(5);
 
-        return view('autores.index', $datos);
+        //return view('autores.index', $datos);
+
+        return redirect('autores');
     }
 
     /**

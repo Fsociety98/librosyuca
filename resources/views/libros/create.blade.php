@@ -17,6 +17,15 @@
     <input type="text" name="calificacion" id="calificacion">
     <br>
 
+    <div class="form-group">
+        <label for="autorId">Autores</label>
+        <select class="form-control" id="autorId" name="autorId">
+        @foreach ($autoresList as $autor)
+            <option value="{{$autor->autorId}}">{{$autor->nombre}}</option>
+        @endforeach
+        </select>
+    </div>
+
 
     <input type="submit" value="Agregar">
 </form>
