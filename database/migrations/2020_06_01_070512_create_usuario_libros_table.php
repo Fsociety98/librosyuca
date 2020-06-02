@@ -15,8 +15,8 @@ class CreateUsuarioLibrosTable extends Migration
     {
         Schema::create('usuario_libros', function (Blueprint $table) {
             $table->increments('libro_usuarioId');
-            $table->integer('usuarioId')->unsigned();
-            $table->foreign('usuarioId')->references('usuarioId')->on('usuarios');
+            $table->integer('userId')->unsigned();
+            $table->foreign('userId')->references('userId')->on('users');
             $table->integer('libroId')->unsigned();
             $table->foreign('libroId')->references('libroId')->on('libros');
             $table->integer('libro_estadoId')->unsigned();

@@ -49,7 +49,9 @@ class AutoresController extends Controller
 
         Autores::insert($datosAutor);
 
-        return response()->json($datosAutor);
+        //return response()->json($datosAutor);
+
+        return redirect('autores');
     }
 
     /**
