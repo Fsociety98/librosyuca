@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Libros;
 use App\Autores;
+use App\Clasificaciones;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LibrosController extends Controller
 {
@@ -15,7 +17,9 @@ class LibrosController extends Controller
      */
     public function index()
     {
-        //
+        $datos['libros'] = Libros::all();
+
+        return view('libros.index', $datos);
     }
 
     /**
@@ -26,7 +30,9 @@ class LibrosController extends Controller
     public function create()
     {
         $autoresList = Autores::all();
-        return view('libros.create', compact('autoresList'));
+        $clasificacionesList = Clasificaciones::all();
+
+        return view('libros.create', compact('autoresList','clasificacionesList'));
     }
 
     /**
@@ -37,7 +43,18 @@ class LibrosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datosLibro = request()->except('_token');
+
+        
+        if($request->hasFile('imagen')){
+            $datosLibro['imagen'] = $request->file('imagen')->store('uploads','public');
+        }
+        
+        Libros::insert($datosLibro);
+
+        //return response()->json($datosLibro);
+
+        return redirect('libros');
     }
 
     /**
@@ -57,9 +74,14 @@ class LibrosController extends Controller
      * @param  \App\Libros  $libros
      * @return \Illuminate\Http\Response
      */
-    public function edit(Libros $libros)
+    public function edit($libroId)
     {
-        //
+        $libro = Libros::findOrFail($libroId);
+
+        $autoresList = Autores::all();
+        $clasificacionesList = Clasificaciones::all();
+
+        return view('libros.edit', compact('libro', 'autoresList', 'clasificacionesList'));
     }
 
     /**
@@ -69,9 +91,22 @@ class LibrosController extends Controller
      * @param  \App\Libros  $libros
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Libros $libros)
+    public function update(Request $request, $libroId)
     {
-        //
+        $datosLibro = request()->except(['_token','_method']);
+
+        if($request->hasFile('imagen')){
+            $libro = Libros::findOrFail($libroId);
+
+            Storage::delete('public/'.$libro->imagen);
+
+            $datosLibro['imagen'] = $request->file('imagen')->store('uploads','public');
+        }
+
+        Libros::where('libroId', '=', $libroId)->update($datosLibro);
+
+
+        return redirect('libros');
     }
 
     /**
@@ -80,8 +115,14 @@ class LibrosController extends Controller
      * @param  \App\Libros  $libros
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Libros $libros)
+    public function destroy($libroId)
     {
-        //
+        $libro = Libros::findOrFail($libroId);
+        
+        if(Storage::delete('public/'.$libro->imagen)){
+            Libros::destroy($libroId);
+        }
+
+        return redirect('libros');
     }
 }

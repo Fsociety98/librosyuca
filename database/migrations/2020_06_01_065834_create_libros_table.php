@@ -21,7 +21,7 @@ class CreateLibrosTable extends Migration
 
             $table->integer('clasificacionId')->unsigned();
             $table->foreign('clasificacionId')->references('clasificacionId')->on('clasificaciones');
-            $table->integer('añoPublicacion');
+            $table->integer('anoPublicacion');
             $table->longText('descripcion');
             $table->text('imagen');
             $table->float('calificacion');
