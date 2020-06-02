@@ -14,7 +14,9 @@ class ClasificacionesController extends Controller
      */
     public function index()
     {
-        //
+        $datos['clasificaciones'] = Clasificaciones::paginate(5);
+
+        return view('clasificaciones.index', $datos);
     }
 
     /**
@@ -24,7 +26,7 @@ class ClasificacionesController extends Controller
      */
     public function create()
     {
-        //
+        return view('clasificaciones.create');
     }
 
     /**
@@ -35,7 +37,11 @@ class ClasificacionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datosClasificacion = request()->except('_token');
+
+        Clasificaciones::insert($datosClasificacion);
+
+        return redirect('clasificaciones');
     }
 
     /**
@@ -55,9 +61,11 @@ class ClasificacionesController extends Controller
      * @param  \App\Clasificaciones  $clasificaciones
      * @return \Illuminate\Http\Response
      */
-    public function edit(Clasificaciones $clasificaciones)
+    public function edit($clasificacionId)
     {
-        //
+        $clasificacion = Clasificaciones::findOrFail($clasificacionId);
+
+        return view('clasificaciones.edit', compact('clasificacion'));
     }
 
     /**
@@ -67,9 +75,14 @@ class ClasificacionesController extends Controller
      * @param  \App\Clasificaciones  $clasificaciones
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Clasificaciones $clasificaciones)
+    public function update(Request $request, $clasificacionId)
     {
-        //
+        $datosClasificacion = request()->except(['_token','_method']);
+        Clasificaciones::where('clasificacionId', '=', $clasificacionId)->update($datosClasificacion);
+
+        $datos['clasificaciones'] = Clasificaciones::paginate(5);
+
+        return view('clasificaciones.index', $datos);
     }
 
     /**
@@ -78,8 +91,9 @@ class ClasificacionesController extends Controller
      * @param  \App\Clasificaciones  $clasificaciones
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Clasificaciones $clasificaciones)
+    public function destroy($clasificacionId)
     {
-        //
+        Clasificaciones::destroy($clasificacionId);
+        return redirect('clasificaciones');
     }
 }

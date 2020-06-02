@@ -28,3 +28,5 @@ Route::resource('autores','AutoresController');
 //libros
 Route::resource('libros','LibrosController');
 
+//clasificaciones
+Route::resource('clasificaciones','ClasificacionesController');
