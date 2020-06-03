@@ -19,4 +19,17 @@
         e.preventDefault();
         $("body").toggleClass("sb-sidenav-toggled");
     });
+    var destroyed = false;
+
+  
+  
 })(jQuery);
+document.querySelector('.toggle-star-rating').addEventListener('click', function() {
+    if (!destroyed) {
+    starratings.destroy();
+    destroyed = true;
+    } else {
+    starratings.rebuild();
+    destroyed = false;
+    }
+});

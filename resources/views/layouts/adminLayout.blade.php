@@ -10,6 +10,12 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link href="{{ URL::to('/') }}/css/styles.css" rel="stylesheet" />
     <link href="{{ URL::to('/') }}/css/styles1.css" rel="stylesheet" />
+    <link href="{{ URL::to('/') }}/css/star-rating.css" rel="stylesheet" />
+    <link href="{{ URL::to('/') }}/css/star-rating.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
         crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous">
@@ -22,9 +28,9 @@
             href="index.html">{{ config('app.name', 'Laravel') }}</a><button
             class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
                 class="fas fa-bars"></i></button><!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
 
-        </form>
+        </div>
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="nav-item dropdown">
@@ -41,10 +47,9 @@
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
-
                     <div class="nav">
-                        <a class="nav-link-head">
-                            <button type="button" class="btn btn-secondary btn-lg">
+                        <a href="{{ url('/libros') }}"  class="nav-link-head">
+                            <button  type="button" class="btn btn-secondary btn-lg">
                                 <i style="margin-right: 5px;" class="fas fa-plus"></i>
                                 AGREGA UN LIBRO
                             </button>
@@ -56,6 +61,10 @@
                         </a><a class="nav-link" href="{{ url('/clasificaciones') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-stream"></i></div>
                             Clasificaciones
+                        </a>
+                        </a><a class="nav-link" href="{{ url('/libros') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
+                            Libros
                         </a>
                     </div>
                 </div>
@@ -71,10 +80,12 @@
             </main>
         </div>
     </div>
+    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="{{ URL::to('/') }}/js/scripts.js"></script>
+    <script src="{{ URL::to('/') }}/js/star-rating.js"></script>
 
 </body>
 

@@ -25,9 +25,7 @@ Route::get('/popular', 'PanelLibrosController@popular')->name('PanelLibrosPopula
 Route::get('/reciente', 'PanelLibrosController@reciente')->name('PanelLibrosReciente');
 
 
-Route::get('/admin', function () {
-    return view('admin.adminAutors');
-})->name('autors');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
