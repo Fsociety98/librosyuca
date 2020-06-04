@@ -9,7 +9,7 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Template</title>
+    <title>LibrosYUC</title>
     <link href="{{URL::to('/')}}/css/styles1.css" rel="stylesheet" />
     <link href="{{URL::to('/')}}/css/styles.css" rel="stylesheet" />
     <link
@@ -150,8 +150,7 @@
                             margin-bottom: 2px;
                             color: #7874CF;" class="fas fa-circle"></i>
                         </div>
-                        Non Fiction</a
-                    >
+                        Non Fiction</a>
                     </div>
                 <div style="height: 10px; background-color: #19202e;"></div>
             </div>

@@ -24,15 +24,15 @@ Route::get('/gratis', 'PanelLibrosController@gratis')->name('PanelLibrosGratis')
 Route::get('/popular', 'PanelLibrosController@popular')->name('PanelLibrosPopular');
 Route::get('/reciente', 'PanelLibrosController@reciente')->name('PanelLibrosReciente');
 
-Route::get('/admin', function () {
-    return view('admin.adminAutors');
-})->name('autors');
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 //autores
+//Route::get('/autores', 'AutoresController@index')->name('autores');
+//Route::get('/autores/create', 'AutoresController@create')->name('autores_create');
 Route::resource('autores','AutoresController');
 
 //libros

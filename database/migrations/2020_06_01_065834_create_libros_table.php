@@ -18,10 +18,9 @@ class CreateLibrosTable extends Migration
             $table->string('nombre');
             $table->integer('autorId')->unsigned();
             $table->foreign('autorId')->references('autorId')->on('autores');
-
             $table->integer('clasificacionId')->unsigned();
             $table->foreign('clasificacionId')->references('clasificacionId')->on('clasificaciones');
-            $table->integer('anoPublicacion');
+            $table->string('anoPublicacion');
             $table->longText('descripcion');
             $table->text('imagen');
             $table->float('calificacion');
